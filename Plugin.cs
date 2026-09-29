@@ -1,13 +1,18 @@
-﻿using BepInEx;
+using BepInEx;
 using BepInEx.Logging;
 using SPT_AdvancedModdingLights.Utils;
 using SPT_AdvancedModdingLights.Patches;
 
 namespace SPT_AdvancedModdingLights
 {
-    [BepInPlugin("moxopixel.advanced.modding.lights", "MoxoPixel-AdvancedModdingLights", "1.0.0")]
+    [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
     public class Plugin : BaseUnityPlugin
     {
+        public const string PluginGuid = "moxopixel.advanced.modding.lights";
+        public const string PluginName = "Advanced Modding Lights";
+        public const string PluginVersion = "2.0.0";
+        public const string PluginAuthors = "Hj, MoxoPixel";
+
         public static ManualLogSource LogSource;
 
         private void Awake()
@@ -15,7 +20,7 @@ namespace SPT_AdvancedModdingLights
             LogSource = Logger;
             Settings.Init(Config);
             WeaponModdingPatch.Enable();
-            LogSource.LogInfo("Advanced Modding Lights loaded");
+            LogSource.LogInfo($"{PluginName} {PluginVersion} by {PluginAuthors} loaded");
         }
     }
 }
